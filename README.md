@@ -37,3 +37,24 @@ Le serveur est alors lancé et le site web est disponible en ouvrant un navigate
 ### Contributions
 
 This repository is **not** open to contributions as it is group project made as part of our course.
+
+
+### Dev
+First install on device
+```bash
+git clone git@github.com:[username]/hdrdb.git hdrdb
+cd hdrdb
+source [nom du venv]/bin/activate
+pip install django
+git checkout dev
+./manage.py runserver
+```
+
+Push
+```bash
+git remote -v //affiche l\'origin
+git remote add "lien vers mon repo"
+git add .
+git commit -m "message"
+git push origin dev
+```
