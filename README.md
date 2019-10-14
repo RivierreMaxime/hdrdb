@@ -21,7 +21,7 @@ source [nom du venv]/bin/activate
 
 - Installer Django :
 ```bash
-pip install django
+pip install -r requirements.txt
 ```
 
 ##### Serveur web Django
