@@ -40,7 +40,9 @@ This repository is **not** open to contributions as it is group project made as 
 
 
 ### Dev
+
 First install on device
+
 ```bash
 git clone git@github.com:[username]/hdrdb.git hdrdb
 cd hdrdb
@@ -51,6 +53,7 @@ git checkout dev
 ```
 
 Push
+
 ```bash
 git remote -v //affiche l\'origin
 git remote add "lien vers mon repo"
