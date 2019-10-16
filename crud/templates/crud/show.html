@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Film Records</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+
+<body>
+    <table class="table table-striped table-bordered table-sm">
+        <thead class="thead-dark">
+            <tr>
+                <th>Film id</th>
+                <th>Film titre</th>
+                <th>Film annee_sortie</th>
+                <th>Film personne</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for film in films %}
+            <tr>
+                <td>{{ film.id }}</td>
+                <td>{{ film.titre }}</td>
+                <td>{{ film.annee_sortie }}</td>
+                <td>{{ film.personnes }}</td>
+                <td>
+                    <a href="/crud/edit/{{ film.id }}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
+                    <a href="/crud/delete/{{ film.id }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <center><a href="/crud/film" class="btn btn-primary">Add New Record</a></center>
+</body>
+
+</html>
