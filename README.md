@@ -19,7 +19,7 @@ python3 -m venv [nom du venv]
 source [nom du venv]/bin/activate
 ```
 
-- Installer Django :
+- Installer Django et autres paquets requis :
 ```bash
 pip install -r requirements.txt
 ```
@@ -36,28 +36,15 @@ Le serveur est alors lancé et le site web est disponible en ouvrant un navigate
 
 ### Contributions
 
-This repository is **not** open to contributions as it is group project made as part of our course.
-
+This repository is **not** open to contributions as it is a group project made as part of our course.
 
 ### Dev
 
-First install on device
-
 ```bash
-git clone git@github.com:[username]/hdrdb.git hdrdb
-cd hdrdb
-source [nom du venv]/bin/activate
-pip install django
-git checkout dev
-./manage.py runserver
-```
-
-Push
-
-```bash
-git remote -v //affiche l\'origin
-git remote add "lien vers mon repo"
+git checkout dev    //aller à la branche 'dev'
+git remote -v       //affiche l'origin
+git remote add "lien vers le repo"
 git add .
-git commit -m "message"
+git commit -m "commit message"
 git push origin dev
 ```
