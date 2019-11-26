@@ -1,11 +1,11 @@
 import bs4
 import requests
 from django.http import HttpResponse
+from django.shortcuts import render
 
 
-# Create your views here.
 def listing(request):
-    return HttpResponse("Listing")
+    return render(request,'main.html',{'taches': objets })
 
 
 def news(request):
