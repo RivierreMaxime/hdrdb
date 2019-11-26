@@ -15,7 +15,6 @@
                 <th>Film id</th>
                 <th>Film titre</th>
                 <th>Film annee_sortie</th>
-                <th>Film personne</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -25,7 +24,6 @@
                 <td>{{ film.id }}</td>
                 <td>{{ film.titre }}</td>
                 <td>{{ film.annee_sortie }}</td>
-                <td>{{ film.personnes }}</td>
                 <td>
                     <a href="/crud/edit/{{ film.id }}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
                     <a href="/crud/delete/{{ film.id }}">Delete</a>
