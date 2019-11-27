@@ -25,7 +25,8 @@ def news(request):
         duration = div.find("p", {"class": "cert-runtime-genre"}).findChildren("time")[0].text
         metascore = div.find("div", {"class": "rating_txt"}).findChildren("span")[0].text
         description = div.find("div", {"class": "outline"}).text
-        return HttpResponse([titre, date, duration, metascore, description])
+        realisateur = div.find("div", {"class": "txt-block"}).findChildren("span")[0].text
+        return HttpResponse([titre, date, duration, metascore, description, realisateur])
 
 
 def coming(request):
