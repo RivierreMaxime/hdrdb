@@ -38,7 +38,7 @@ Le serveur est alors lancé et le site web est disponible en ouvrant un navigate
 
 This repository is **not** open to contributions as it is a group project made as part of our course.
 
-### Dev
+### dev
 
 ```bash
 git checkout dev    //aller à la branche 'dev'
@@ -47,4 +47,13 @@ git remote add "lien vers le repo"
 git add .
 git commit -m "commit message"
 git push origin dev
+```
+
+#### Mise à jour du fork par rapport au master
+
+```bash
+git remote add upstream git@github.com:baptistehardy/hdrdb.git
+git fetch upstream
+git checkout master
+git rebase upstream/master
 ```
