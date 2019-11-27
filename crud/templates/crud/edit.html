@@ -6,45 +6,76 @@
     <title>Index</title>
     {% load staticfiles %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css"
+        integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
 </head>
 
 <body>
-    <form method="POST" class="post-form" action="/crud/update/{{ film.id }}">
-        {% csrf_token %}
-        <div class="container">
-            <br>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/crud/show">HDRDB</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="/crud/show">Crud film</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Edit film #{{ film.id }}</h1>
+        <form method="POST" class="post-form" action="/crud/update/{{ film.id }}">
+            {% csrf_token %}
             <div class="form-group row">
-                <label class="col-sm-1 col-form-label"></label>
-                <div class="col-sm-4">
-                    <h3>Update Details</h3>
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Film id</label>
+                <div class="col-sm-10">
+                    <input type="text" name="id" id="id" required maxlength="20" value="{{ film.id }}"
+                        class="form-control" />
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Film Id:</label>
-                <div class="col-sm-4">
-                    <input type="text" name="id" id="id" required maxlength="20" value="{{ film.id }}" />
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Film title</label>
+                <div class="col-sm-10">
+                    <input type="text" name="title" id="title" required maxlength="20" value="{{ film.title }}"
+                        class="form-control" />
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Film Title:</label>
-                <div class="col-sm-4">
-                    <input type="text" name="titre" id="titre" required maxlength="20" value="{{ film.titre }}" />
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Film duration</label>
+                <div class="col-sm-10">
+                    <input type="text" name="duration" id="duration" required maxlength="20" value="{{ film.duration }}"
+                        class="form-control" />
                 </div>
-            </div> 
+            </div>
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Film annee_sortie:</label>
-                <div class="col-sm-4">
-                    <input type="text" name="annee_sortie" id="annee_sortie" required maxlength="20" value="{{ film.annee_sortie }}" />
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Film release_year</label>
+                <div class="col-sm-10">
+                    <input type="text" name="release_year" id="release_year" required maxlength="20"
+                        value="{{ film.release_year }}" class="form-control" />
                 </div>
-            </div> 
+            </div>
             <div class="form-group row">
-                <label class="col-sm-1 col-form-label"></label>
-                <div class="col-sm-4">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Film description</label>
+                <div class="col-sm-10">
+                    <input type="text" name="description" id="description" required maxlength="20"
+                        value="{{ film.description }}" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Film director</label>
+                <div class="col-sm-10">
+                    <input type="text" name="director" id="director" required maxlength="20" value="{{ film.director }}"
+                        class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row text-center">
+                <div class="col-sm-10">
                     <button type="submit" class="btn btn-success">Update</button>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </body>
 
 </html>

@@ -12,8 +12,11 @@ from django.db import models
 
 
 class Film(models.Model):
-    titre = models.CharField(max_length=255)
-    annee_sortie = models.CharField(max_length=255)
+    title = models.CharField(max_length=255, null=True)
+    release_year = models.CharField(max_length=255, null=True)
+    duration = models.CharField(max_length=255, null=True)
+    description = models.CharField(max_length=255, null=True)
+    director = models.CharField(max_length=255, null=True)
     # personnes = models.ManyToManyField('Personne')
 
 #manage.py loaddata "nom-fixture"
