@@ -4,7 +4,8 @@ import string
 import re
 from django.http import HttpResponse
 from django.shortcuts import render
-from pprint import pprint
+from crud.forms import FilmForm
+from crud.models import Film
 
 
 def listing(request):
@@ -18,20 +19,20 @@ def news(request):
     all = soup.findAll("div", {"class": "list_item"})
     for div in all:
         chars = '()[]-/\ '
-        titre = div.find("h4").findChildren("a", recursive=False)[0]
-        date = div.find("h4").findChildren("span", recursive=False)[0].text
+        title = div.find("h4").findChildren("a", recursive=False)[0]
+        release_year = div.find("h4").findChildren("span", recursive=False)[0].text
         #for char in chars:
         #   date = date.replace(char, "")
         duration = div.find("p", {"class": "cert-runtime-genre"}).findChildren("time")[0].text
         metascore = div.find("div", {"class": "rating_txt"}).findChildren("span")[0].text
         description = div.find("div", {"class": "outline"}).text
-        realisateur = div.find("div", {"class": "txt-block"}).findChildren("span")[0].text
-        return HttpResponse([titre, date, duration, metascore, description, realisateur])
+        director = div.find("div", {"class": "txt-block"}).findChildren("span")[0].text
+        return HttpResponse([title, release_year, duration, metascore, description, director])
 
 
-def coming(request):
+""" def coming(request):
     remote = requests.get("https://www.imdb.com/movies-coming-soon/")
     soup = bs4.BeautifulSoup(remote.text, "lxml")
     soup.prettify()
     all = soup.findAll("div", {"class": "list_item"})
-    return HttpResponse(all)
+    return HttpResponse(all) """
