@@ -19,14 +19,44 @@ def news(request):
     all = soup.findAll("div", {"class": "list_item"})
     total = 0
     for div in all:
-        title = div.find("h4").findChildren("a", recursive=False)[0]
-        release_year = div.find("h4").findChildren("span", recursive=False)[0].text
-        duration = div.find("p", {"class": "cert-runtime-genre"}).findChildren("time")[0].text
-        metascore = div.find("div", {"class": "rating_txt"}).findChildren("span")[0].text
-        description = div.find("div", {"class": "outline"}).text
-        director = div.find("div", {"class": "txt-block"}).findChildren("span")[0].text
+        image = div.find("img", {"class": "poster"})['src']
+
+        try:
+            title = div.find("h4").findChildren("a", recursive=False)[0].text
+        except:
+            pass
+
+        try:
+            release_year = div.find("h4").findChildren("span", recursive=False)[0].text
+        except:
+            pass
+
+        try:
+            duration = div.find("p", {"class": "cert-runtime-genre"}).findChildren("time")[0].text
+        except:
+            pass
+
+        try:
+            metascore = div.find("div", {"class": "rating_txt"}).findChildren("span")[0].text
+        except:
+            pass
+
+        try:
+            description = div.find("div", {"class": "outline"}).text
+        except:
+            pass
+
+        try:
+            director = div.find("div", {"class": "txt-block"}).findChildren("span")[0].text
+        except:
+            pass
+
         total += 1
-        return HttpResponse([title, release_year, duration, metascore, description, director])
+        film = Film(title=title, release_year=release_year, duration=duration, description=description, director=director)
+        film.save()
+
+    films = Film.objects.all()
+    return render(request, "crud/show.html", {'films': films})
 
 
 def coming(request):
